@@ -1,7 +1,7 @@
 {
-  "name": "geth",
+  "name": "gexp",
   "version": "0.3.0",
-  "description": "Start and stop geth from Node.js",
+  "description": "Start and stop gexp from Node.js",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ethereumjs/geth.js.git"
+    "url": "git+https://github.com/expansejs/gexp.js.git"
   },
   "keywords": [
-    "geth",
+    "gexp",
     "ethereum",
     "spawn",
     "child process"
@@ -20,9 +20,9 @@
   "author": "Jack Peterson <jack@tinybike.net>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ethereumjs/geth.js/issues"
+    "url": "https://github.com/expansejs/gexp.js/issues"
   },
-  "homepage": "https://github.com/ethereumjs/geth.js#readme",
+  "homepage": "https://github.com/expansejs/gexp.js#readme",
   "devDependencies": {
     "async": "^1.5.0",
     "chai": "^3.4.0",

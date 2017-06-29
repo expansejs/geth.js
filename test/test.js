@@ -1,5 +1,5 @@
 /**
- * geth.js unit tests
+ * gexp.js unit tests
  * @author Jack Peterson (jack@tinybike.net)
  */
 
@@ -8,13 +8,13 @@
 var async = require("async");
 var join = require("path").join;
 var assert = require("chai").assert;
-var ethrpc = require("ethrpc");
+var ethrpc = require("exprpc");
 var geth = require("../");
 geth.debug = false;
 
 var SYMLINK = join(process.env.HOME, "ethlink");
 var COINBASE = {
-    "10101": "0x05ae1d0ca6206c6168b42efcd1fbe0ed144e821b",
+    "10102": "0x05ae1d0ca6206c6168b42efcd1fbe0ed144e821b",
     "7": "0x639b41c4d3d399894f2a57894278e1653e7cd24c"
 };
 var BOOTNODES = [
@@ -37,53 +37,53 @@ var BOOTNODES = [
 ];
 
 var options = {
-    "network 10101: locked": {
-        networkid: "10101",
+    "network 10102: locked": {
+        networkid: "10102",
         port: 30304,
-        rpcport: 8547
+        rpcport: 8658
     },
-    "network 10101: locked/flags": {
+    "network 10102: locked/flags": {
         flags: {
-            networkid: "10101",
+            networkid: "10102",
             port: 30304,
-            rpcport: 8547
+            rpcport: 8658
         }
     },
-    "network 10101: locked/symlink/flags": {
+    "network 10102: locked/symlink/flags": {
         symlink: SYMLINK,
         flags: {
-            networkid: "10101",
+            networkid: "10102",
             port: 30304,
-            rpcport: 8547
+            rpcport: 8658
         }
     },
-    "network 10101: locked/persistent/flags": {
+    "network 10102: locked/persistent/flags": {
         persist: true,
         flags: {
-            networkid: "10101",
+            networkid: "10102",
             port: 30304,
-            rpcport: 8547
+            rpcport: 8658
         }
     },
-    "network 10101: locked/persistent/symlink/flags": {
+    "network 10102: locked/persistent/symlink/flags": {
         persist: true,
         symlink: SYMLINK,
         flags: {
-            networkid: "10101",
+            networkid: "10102",
             port: 30304,
-            rpcport: 8547
+            rpcport: 8658
         }
     },
     "network 7: locked": {
         networkid: "7",
         port: 30304,
-        rpcport: 8547
+        rpcport: 8658
     },
     "network 7: locked/flags": {
         flags: {
             networkid: "7",
             port: 30304,
-            rpcport: 8547
+            rpcport: 8658
         }
     },
     "network 7: locked/symlink/flags": {
@@ -91,7 +91,7 @@ var options = {
         flags: {
             networkid: "7",
             port: 30304,
-            rpcport: 8547
+            rpcport: 8658
         }
     },
     "network 7: locked/persistent/flags": {
@@ -99,7 +99,7 @@ var options = {
         flags: {
             networkid: "7",
             port: 30304,
-            rpcport: 8547
+            rpcport: 8658
         }
     },
     "network 7: locked/persistent/symlink/flags": {
@@ -108,7 +108,7 @@ var options = {
         flags: {
             networkid: "7",
             port: 30304,
-            rpcport: 8547
+            rpcport: 8658
         }
     }
 };
@@ -116,40 +116,40 @@ if (!process.env.CONTINUOUS_INTEGRATION) {
     options["network 7: locked"] = {
         networkid: "7",
         port: 30304,
-        rpcport: 8547,
+        rpcport: 8658,
         bootnodes: BOOTNODES
     };
     options["network 7: locked/flags"] = {
         flags: {
             networkid: "7",
             port: 30304,
-            rpcport: 8547,
+            rpcport: 8658,
             bootnodes: BOOTNODES
         }
     };
-    options["network 10101: unlocked"] = {
-        networkid: "10101",
+    options["network 10102: unlocked"] = {
+        networkid: "10102",
         port: 30304,
-        rpcport: 8547,
-        unlock: COINBASE["10101"],
-        etherbase: COINBASE["10101"]
+        rpcport: 8658,
+        unlock: COINBASE["10102"],
+        etherbase: COINBASE["10102"]
     };
-    options["network 10101: unlocked/flags"] = {
+    options["network 10102: unlocked/flags"] = {
         flags: {
-            networkid: "10101",
+            networkid: "10102",
             port: 30304,
-            rpcport: 8547,
-            unlock: COINBASE["10101"],
-            etherbase: COINBASE["10101"]
+            rpcport: 8658,
+            unlock: COINBASE["10102"],
+            etherbase: COINBASE["10102"]
         }
     };
-    options["network 10101: account/symlink/flags"] = {
-        account: COINBASE["10101"],
+    options["network 10102: account/symlink/flags"] = {
+        account: COINBASE["10102"],
         symlink: SYMLINK,
         flags: {
-            networkid: "10101",
+            networkid: "10102",
             port: 30304,
-            rpcport: 8547,
+            rpcport: 8658,
             shh: null,
             mine: null
         }
@@ -157,7 +157,7 @@ if (!process.env.CONTINUOUS_INTEGRATION) {
     options["network 7: unlocked"] = {
         networkid: "7",
         port: 30304,
-        rpcport: 8547,
+        rpcport: 8658,
         unlock: COINBASE["7"],
         etherbase: COINBASE["7"],
         bootnodes: BOOTNODES
@@ -166,7 +166,7 @@ if (!process.env.CONTINUOUS_INTEGRATION) {
         flags: {
             networkid: "7",
             port: 30304,
-            rpcport: 8547,
+            rpcport: 8658,
             unlock: COINBASE["7"],
             etherbase: COINBASE["7"],
             bootnodes: BOOTNODES
@@ -178,7 +178,7 @@ if (!process.env.CONTINUOUS_INTEGRATION) {
         flags: {
             networkid: "7",
             port: 30304,
-            rpcport: 8547,
+            rpcport: 8658,
             bootnodes: BOOTNODES
         }
     };
@@ -199,8 +199,8 @@ function runtests(options) {
             this.timeout(TIMEOUT);
             geth.start(options, function (err, spawned) {
                 if (err) return done(err);
-                if (!spawned) return done(new Error("where's the geth?"));
-                ethrpc.ipcpath = join(geth.datadir, "geth.ipc");
+                if (!spawned) return done(new Error("where's the gexp?"));
+                ethrpc.ipcpath = join(geth.datadir, "gexp.ipc");
                 done();
             });
         });
@@ -380,7 +380,7 @@ function runtests(options) {
                 ethrpc.clientVersion(function (res) {
                     if (res.error) return done(res);
                     assert.isString(res);
-                    assert.strictEqual(res.split('/')[0], "Geth");
+                    assert.strictEqual(res.split('/')[0], "Gexp");
                     done();
                 });
             });
@@ -405,7 +405,7 @@ function runtests(options) {
                                 }
                             }, function (err, spawned) {
                                 if (err) return done(err);
-                                if (!spawned) return done(new Error("where's the geth?"));
+                                if (!spawned) return done(new Error("where's the gexp?"));
                                 geth.stdout(t.label, function (data) {
                                     geth.stop(done);
                                 });

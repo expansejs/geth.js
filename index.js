@@ -41,11 +41,11 @@ module.exports = {
     persist: false,
 
     configure: function (options) {
-        this.bin = options.geth_bin || "geth";
+        this.bin = options.geth_bin || "gexp";
         this.persist = options.persist || false;
         var f = copy(options.flags || options);
         this.network = f.networkid;
-        f.datadir = f.datadir || join(process.env.HOME, ".ethereum-" + f.networkid);
+        f.datadir = f.datadir || join(process.env.HOME, ".expanse-" + f.networkid);
         if (options.symlink) {
             if (fs.existsSync(options.symlink)) fs.unlinkSync(options.symlink);
             fs.symlinkSync(f.datadir, options.symlink);
